@@ -10,7 +10,7 @@
 
 #define BLOCK_SIZE 768
 
-#define BIT_PASS 4 // number of bit each time
+#define BIT_PASS 3 // number of bit each time
 
 #define BUCK_SIZE 256
 #define BIT_MASK 0xF
@@ -737,7 +737,7 @@ void genGrouping2d(ulli *input, ulli* input2, ulli inputSize, std::vector<ulli> 
     //std::cout<<"Total Output:"<<checkNum<<std::endl;
 
     //std::cout<<"Running time:"<<m_time/1000<<"Sec."<<std::endl;
-    std::cout<<m_time/1000<<std::endl;
+    std::cout<<"grouping2d = "<<m_time<<std::endl;
 
     return;
 }

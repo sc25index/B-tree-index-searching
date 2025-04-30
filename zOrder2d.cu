@@ -10,7 +10,7 @@
 
 #define BLOCK_SIZE 1024
 
-#define BIT_PASS 4 // number of bit each time
+#define BIT_PASS 5 // number of bit each time
 
 #define BUCK_SIZE 256
 #define BIT_MASK 0xF
@@ -165,7 +165,7 @@ void genGrouping2dZ(ulli *input, ulli* input2, ulli* &output, ulli inputSize) {
     cudaFree(dev_input2);
     cudaFree(dev_output);
 
-    std::cout<<m_time/1000<<std::endl;
+    std::cout<<"z-ordering = "<<m_time<<std::endl;
 
     return;
 }

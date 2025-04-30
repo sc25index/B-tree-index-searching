@@ -10,6 +10,8 @@
 
 #define BLOCK_SIZE 768
 
+// #define BIT_PASS 5 //8 // number of bit each time, for point search
+// #define BUCK_SIZE 256
 #define BIT_PASS 8 // number of bit each time
 #define BUCK_SIZE 256
 #define BIT_MASK 0xFF
@@ -1521,7 +1523,7 @@ void genGroupingWithTwodata(ulli *input, ulli *input_data, ulli *input_data2, ul
     //std::cout<<"Total Output:"<<checkNum<<std::endl;
 
     //std::cout<<"Running time:"<<m_time/1000<<"Sec."<<std::endl;
-    std::cout<<m_time/1000<<std::endl;
+    std::cout<<"grouping 2data = "<<m_time<<std::endl;
 
     return;
 }
@@ -1843,7 +1845,7 @@ void* genGrouping(ulli *input, ulli inputSize, std::vector<ulli> &groupList, std
     //std::cout<<"Total Output:"<<checkNum<<std::endl;
 
     //std::cout<<"Running time:"<<m_time/1000<<"Sec."<<std::endl;
-    std::cout<<m_time/1000<<std::endl;
+    std::cout<<"gengrouping= "<<m_time<<std::endl;
 
     return dev_output;
 }

@@ -166,7 +166,7 @@ int main(int argc, char *argv[]) {
         {
             size_t x,y;
             cudaMemGetInfo(&x,&y);
-            fprintf(stderr, "Free memory %lu MB, Total memory %lu MB\n", x/1000000, y/1000000);
+            // fprintf(stderr, "Free memory %lu MB, Total memory %lu MB\n", x/1000000, y/1000000);
         }
 
         {
@@ -195,7 +195,7 @@ int main(int argc, char *argv[]) {
         {
             size_t x,y;
             cudaMemGetInfo(&x,&y);
-            fprintf(stderr, "Free memory %lu MB, Total memory %lu MB\n", x/1000000, y/1000000);
+            // fprintf(stderr, "Free memory %lu MB, Total memory %lu MB\n", x/1000000, y/1000000);
         }
 
         {
@@ -215,64 +215,64 @@ int main(int argc, char *argv[]) {
         ulli *result1= (ulli*)SearchingBTreeGPUOnlyOneState(input_key, inputSize_key,
                                                            dev_btree, dev_globalPointer);
 
-        std::cout<<"======================================================================="<<std::endl;
+        std::cout<<"------------------------------------------------------------------------------"<<std::endl;
 
-        {
-            size_t x,y;
-            cudaMemGetInfo(&x,&y);
-            fprintf(stderr, "Free memory %lu MB, Total memory %lu MB\n", x/1000000, y/1000000);
-        }
+        // {
+        //     size_t x,y;
+        //     cudaMemGetInfo(&x,&y);
+        //     // fprintf(stderr, "Free memory %lu MB, Total memory %lu MB\n", x/1000000, y/1000000);
+        // }
 
-        {
-            std::ifstream infile;
-            infile.open(argv[5], std::ios::binary | std::ios::in);
-            if ( infile.fail() ) {
-                std::cerr << "Error: " << strerror(errno)<<std::endl;
-                return -1;
-            }
-            infile.read((char*)input_key, sizeof(ulli) * inputSize_key);
+        // {
+        //     std::ifstream infile;
+        //     infile.open(argv[5], std::ios::binary | std::ios::in);
+        //     if ( infile.fail() ) {
+        //         std::cerr << "Error: " << strerror(errno)<<std::endl;
+        //         return -1;
+        //     }
+        //     infile.read((char*)input_key, sizeof(ulli) * inputSize_key);
 
-            std::cout<<"Init Searching key complete."<<std::endl;
-            std::cout<<"Problem Key Size: "<<inputSize_key/1000000<<" Million Key"<<std::endl;
-        }
+        //     std::cout<<"Init Searching key complete."<<std::endl;
+        //     std::cout<<"Problem Key Size: "<<inputSize_key/1000000<<" Million Key"<<std::endl;
+        // }
 
         // grouping idea with three steps
-        ulli *result2= (ulli*)SearchingBTreeGPU(input_key, inputSize_key,
-                                              dev_btree, dev_globalPointer);
+        // ulli *result2= (ulli*)SearchingBTreeGPU(input_key, inputSize_key,
+        //                                       dev_btree, dev_globalPointer);
 
 
-        std::cout<<"======================================================================="<<std::endl;
+        // std::cout<<"======================================================================="<<std::endl;
 
-        {
-            size_t x,y;
-            cudaMemGetInfo(&x,&y);
-            fprintf(stderr, "Free memory %lu MB, Total memory %lu MB\n", x/1000000, y/1000000);
-        }
+        // {
+        //     size_t x,y;
+        //     cudaMemGetInfo(&x,&y);
+        //     // fprintf(stderr, "Free memory %lu MB, Total memory %lu MB\n", x/1000000, y/1000000);
+        // }
 
-        {
-            std::ifstream infile;
-            infile.open(argv[5], std::ios::binary | std::ios::in);
-            if ( infile.fail() ) {
-                std::cerr << "Error: " << strerror(errno)<<std::endl;
-                return -1;
-            }
-            infile.read((char*)input_key, sizeof(ulli) * inputSize_key);
+        // {
+        //     std::ifstream infile;
+        //     infile.open(argv[5], std::ios::binary | std::ios::in);
+        //     if ( infile.fail() ) {
+        //         std::cerr << "Error: " << strerror(errno)<<std::endl;
+        //         return -1;
+        //     }
+        //     infile.read((char*)input_key, sizeof(ulli) * inputSize_key);
 
-            std::cout<<"Init Searching key complete."<<std::endl;
-            std::cout<<"Problem Key Size: "<<inputSize_key/1000000<<" Million Key"<<std::endl;
-        }
+        //     std::cout<<"Init Searching key complete."<<std::endl;
+        //     std::cout<<"Problem Key Size: "<<inputSize_key/1000000<<" Million Key"<<std::endl;
+        // }
 
-        //naive with two steps
-        ulli *result3= (ulli*)SearchingBTreeGPUNaive(input_key, inputSize_key,
-                                                    dev_btree, dev_globalPointer);
+        // //naive with two steps
+        // ulli *result3= (ulli*)SearchingBTreeGPUNaive(input_key, inputSize_key,
+        //                                             dev_btree, dev_globalPointer);
 
-        std::cout<<"======================================================================="<<std::endl;
+        // std::cout<<"======================================================================="<<std::endl;
 
-        {
-            size_t x,y;
-            cudaMemGetInfo(&x,&y);
-            fprintf(stderr, "Free memory %lu MB, Total memory %lu MB\n", x/1000000, y/1000000);
-        }
+        // {
+        //     size_t x,y;
+        //     cudaMemGetInfo(&x,&y);
+        //     // fprintf(stderr, "Free memory %lu MB, Total memory %lu MB\n", x/1000000, y/1000000);
+        // }
 
     }
 
@@ -306,7 +306,7 @@ int main(int argc, char *argv[]) {
         //std::cout<<dev_globalPointer<<" "<<dev_currentPage<<std::endl;
         SearchingBTreeGPURange(input_key_start,input_key_end, inputSize_key, dev_btree, dev_globalPointer);
 
-        std::cout<<"======================================================================="<<std::endl;
+        std::cout<<">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"<<std::endl;
 
         {
             std::ifstream infile;
@@ -353,6 +353,9 @@ int main(int argc, char *argv[]) {
         }
 
         SearchingBTreeGPURangeWithGroupingZorder(input_key_start,input_key_end, inputSize_key, dev_btree, dev_globalPointer);
+
+        std::cout<<"------------------------------------------------------------------------------"<<std::endl;
+        std::cout<<std::endl;
 
     }
     //std::cout<<PAGESIZE<<","<<inputSize/1000000<<","<<report_running_time(tvalBefore);
