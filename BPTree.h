@@ -3,10 +3,10 @@
 
 #include <vector>
 
-#define PAGE_ALLOCATION 200041 //21000 //200041 //30000
+#define PAGE_ALLOCATION 200041
 
 #define PAGESIZE 5000
-#define GROUP_SEARCH_SIZE 33000 //32000 //35000 //40000 //30000
+#define GROUP_SEARCH_SIZE 33000
 #define DOB_PAGE_SIZE 1
 
 #define INVALID_DATA 0xffffffffffffffff
